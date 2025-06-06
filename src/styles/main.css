@@ -590,6 +590,111 @@ body {
   font-size: 1rem;
 }
 
+/* result analyz */
+
+.container-analyze .result-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.result-section .skin-type-result {
+  background: linear-gradient(135deg, var(--accent), #0056b3);
+  color: white;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px var(--shadow);
+  text-align: center;
+}
+
+.result-section .skin-type-result h3 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.result-section .skin-type-result p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.result-section .recommendation {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px var(--shadow);
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.result-section .recommendation h4 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-section .recommendation ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.result-section .recommendation li {
+  color: var(--text-light);
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: 0.8rem;
+}
+
+.result-section .recommendation li::before {
+  content: '★';
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* Share & Save Button Styling */
+.result-section .action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.result-section .action-buttons button {
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.result-section .action-buttons .share-btn {
+  background: var(--accent);
+  color: #fff;
+}
+
+.result-section .action-buttons .save-btn {
+  background: var(--primary);
+  color: #fff;
+}
+
+.result-section .action-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
 /* Loading Overlay */
 .loading-overlay {
   position: fixed;
