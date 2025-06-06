@@ -274,8 +274,8 @@ class AnalyzePage {
       this.analysisResult;
 
     resultContainer.innerHTML = `
-      <div class="result-success">
-        <div class="result-header">
+      <div class="result-section">
+        <div class="skin-type-result">
           <i data-feather="check-circle" class="success-icon"></i>
           <h3>Jenis Kulit: ${type}</h3>
           <div class="confidence-bar">
@@ -291,13 +291,13 @@ class AnalyzePage {
         </div>
         
         <div class="recommendations">
-          <h4><i data-feather="star"></i> Rekomendasi Perawatan:</h4>
+          <h4><i i class="fas fa-star" data-feather="star"></i> Rekomendasi Perawatan:</h4>
           <ul>
             ${recommendations.map((rec) => `<li>${rec}</li>`).join("")}
           </ul>
         </div>
         
-        <div class="result-actions">
+        <div class="action-buttons">
           <button class="share-btn">
             <i data-feather="share-2"></i>
             Bagikan Hasil
