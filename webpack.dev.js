@@ -1,22 +1,20 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const common = require('./webpack.common.js');
+const { merge } = require('webpack-merge');
 
-module.exports = {
-  entry: "./src/scripts/app.js",
+module.exports = merge(common, {
+  mode: 'development',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -24,24 +22,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
-  ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-    compress: true,
-    port: 3000,
-    open: true,
-    hot: true,
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
+    static: path.resolve(__dirname, 'dist'),
+    port: 9000,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
     },
   },
-};
+});

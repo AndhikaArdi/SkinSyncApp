@@ -7,8 +7,8 @@ module.exports = {
     app: path.resolve(__dirname, "src/scripts/index.js"),
   },
   output: {
-    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js"
   },
   module: {
     rules: [
@@ -20,15 +20,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/index.html"),
+      template: path.resolve(__dirname, 'src/index.html'),
+      excludeChunks: ['sw'],
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "src/public/"),
-          to: path.resolve(__dirname, "dist/"),
-        },
-      ],
-    }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, 'src/public/'),
+    //       to: path.resolve(__dirname, 'dist/'),
+    //     },
+    //     {
+    //       from: path.resolve(__dirname, 'src/public/404.html'),
+    //       to: path.resolve(__dirname, 'dist/404.html'),
+    //     },
+    //   ],
+    // }),
   ],
 };
