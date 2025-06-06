@@ -10,7 +10,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    publicPath: '/StoryApp-dicoding-pwa/',
+    publicPath: '/SkinSyncApp/',
   },
   module: {
     rules: [
