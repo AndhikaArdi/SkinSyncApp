@@ -1,0 +1,55 @@
+/* ===================================================== */
+/* NAVIGATION BAR (DRAWER) RESPONSIVE*/
+
+@media (max-width: 850px) {
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%; 
+        background-color: var(--primary); 
+        width: 30rem; 
+        height: auto;
+        flex-direction: column; 
+        border-top: 1px solid var(--bg); 
+        transition: right 0.3s ease-in-out; 
+        z-index: 9998; 
+    }
+
+    .navbar .navbar-nav.active { 
+      right: 0; 
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg); 
+        display: block; 
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a:hover::after,
+    .navbar .navbar-nav a.active::after {
+        transform: scaleX(0.2); 
+    }
+
+    #hamburger-menu {
+        display: inline-block; 
+    }
+}
+
+@media (max-width: 450px) {
+
+    .navbar { 
+      padding: 1.4rem 4%; 
+    }
+
+    .navbar .navbar-logo { 
+      font-size: 1.8rem; 
+    }
+
+    .navbar .navbar-nav { 
+      width: 100%; 
+    }
+}
+
+/* ===================================================== */

@@ -1,4 +1,4 @@
-import '@/styles/styles.css';
+import '@/styles/main.css';
 import App from '@pg/app';
 import Navigation from '@pg/components/navigation';
 
