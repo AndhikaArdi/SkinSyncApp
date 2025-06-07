@@ -1,6 +1,6 @@
 export default class HomePage {
   async render() {
-    // return html
+    return`<br><br><br><br><br> <h1>hai</h1><i data-feather="heart"></i><h1>hai</h1>`;
   }
 
   async afterRender() {
