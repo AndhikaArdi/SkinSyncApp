@@ -34,6 +34,8 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@sc": path.resolve(__dirname, "src/scripts"),
+      "@pg": path.resolve(__dirname, "src/scripts/pages"), 
     },
   },
 };
