@@ -35,7 +35,8 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src"),
       "@sc": path.resolve(__dirname, "src/scripts"),
-      "@pg": path.resolve(__dirname, "src/scripts/pages"), 
+      "@pg": path.resolve(__dirname, "src/scripts/pages"),
+      "@img": path.resolve(__dirname, "src/public/img"),
     },
   },
 };

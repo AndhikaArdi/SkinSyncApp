@@ -1,9 +1,34 @@
+import HomePresenter from './home-presenter';
+import { generateHomeTemplate,sleep } from '@pg/components/template';
+
 export default class HomePage {
+  #presenter;
+
   async render() {
-    return`<br><br><br><br><br> <h1>hai</h1><i data-feather="heart"></i><h1>hai</h1>`;
+    return`<section class="container-home-view" id="home">memuat ...</section>`;
   }
 
   async afterRender() {
-    // ambil container, hubingin ke presenter
+    this.#presenter = new HomePresenter({
+      view: this,
+    });
+    
+    await this.#presenter._renderView();
+  }
+ 
+  _renderView() {
+    const container = document.querySelector('#app');
+    container.innerHTML = generateHomeTemplate();
+  }
+
+  _applyEntranceAnimation() {
+    const content = document.querySelector('.container-home-view .content');
+    if (content) {
+
+      setTimeout(() => {
+        content.classList.toggle('is-animated'); // menambah class untuk animasi css
+      }, 100);
+
+    }
   }
 }

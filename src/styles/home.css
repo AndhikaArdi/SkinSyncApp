@@ -1,0 +1,100 @@
+.container-home-view {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+      135deg,
+      rgba(33, 52, 72, 0.8),
+      rgba(0, 123, 255, 0.2)
+    ),
+    url("@img/home1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.container-home-view .content { 
+  padding: 1.4rem 7%; 
+  max-width: 60rem; 
+  z-index: 2; 
+  position: relative; 
+} 
+
+.container-home-view .content h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.container-home-view .content h1 i {
+  font-style: italic;
+}
+
+.container-home-view .content h1 span {
+  color: var(--accent);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.container-home-view .content p {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.container-home-view .content .cta {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #0056b3);
+  border-radius: 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.container-home-view .content .cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+}
+
+
+/* Animasi masuk (start) ======================== */
+
+.container-home-view .content h1,
+.container-home-view .content p,
+.container-home-view .content .cta {
+  opacity: 0;
+  transform: translateY(20px); 
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container-home-view .content.is-animated h1 { 
+  animation: fadeInUp 1s ease-out forwards;
+} 
+
+.container-home-view .content.is-animated p { 
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+} 
+
+.container-home-view .content.is-animated .cta { 
+  animation: fadeInUp 1s ease-out 0.4s forwards; 
+}
+
+
+/* Animasi masuk (end) ======================== */
