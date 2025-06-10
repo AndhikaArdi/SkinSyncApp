@@ -1,0 +1,102 @@
+.container-about-view {
+  padding: 7rem 7% 0rem;
+  background: var(--secondary);
+}
+
+.container-about-view h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.container-about-view h2 span {
+  color: var(--accent);
+}
+
+.container-about-view .row {
+  will-change: transform, opacity;
+}
+
+.container-about-view .row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.container-about-view .row .about-img {
+  flex: 1 1 45rem;
+}
+
+.container-about-view .row .about-img img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.container-about-view .row .about-img img:hover {
+  transform: scale(1.02);
+}
+
+.container-about-view .row .content {
+  flex: 1 1 45rem;
+  padding: 0.5rem 2rem 2rem 2rem;
+}
+
+.container-about-view .row h3 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.container-about-view .row h3 span {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.container-about-view .row p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Animasi masuk (start) ======================== */
+
+.container-about-view .row {
+  opacity: 0;
+  transform: translateY(30px); 
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container-about-view .row.is-animated { 
+  animation: fadeInUp 1s ease-out forwards;
+} 
+
+/* Animasi masuk (end) ======================== */
+
+/* Animasi hover (start) ======================== */
+
+.container-about-view .row .feature-item {
+  transition: transform 0.3s ease;
+}
+
+.container-about-view .row .feature-item:hover {
+  transform: translateY(-5px); 
+}
+
+
+/* Animasi hover (end) ======================== */
