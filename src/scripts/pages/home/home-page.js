@@ -1,5 +1,5 @@
 import HomePresenter from './home-presenter';
-import { generateHomeTemplate,sleep } from '@pg/components/template';
+import { generateHomeTemplate } from '@pg/components/template';
 
 export default class HomePage {
   #presenter;

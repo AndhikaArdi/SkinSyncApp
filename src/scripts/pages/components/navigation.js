@@ -1,3 +1,5 @@
+import UrlParser from "@sc/routes/url-parser";
+
 export default class Navigation {
   constructor() {
     this.drawer = null;
@@ -33,6 +35,22 @@ export default class Navigation {
     if (!this.drawer || !this.hamburger || !this.navbar) return;
 
     this._setupEventListeners();
+    this._setActiveLink();
+  }
+
+  _setActiveLink() {
+    const currentPath = '#' + UrlParser.getCurrentPath();
+    const links = this.drawer.querySelectorAll('a');
+    
+    links.forEach(link => {
+      let linkPath = link.getAttribute('href')
+      link.classList.remove('active');
+      
+      if (currentPath === linkPath || 
+          (currentPath.startsWith(linkPath) && linkPath !== '#/')) {
+        link.classList.add('active');
+      }
+    });
   }
 
   _setupEventListeners() {
