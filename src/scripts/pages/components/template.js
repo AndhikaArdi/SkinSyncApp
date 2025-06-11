@@ -142,15 +142,31 @@ export function generateAnalyzeMainTemplate() {
         </div>
         <div class="card-result">
           <div id="analysis-result" class="analysis-content">
-            <div class="result-placeholder">
-              <i data-feather="info" size="48"></i>
-              <h3>Hasil Analisis</h3>
-              <p>Upload foto dan klik "Analisis Kulit" untuk melihat hasil analisis jenis kulit wajah Anda.</p>
-            </div>
+            ${generateAnalyzeResultDefaultTemplate()}
           </div>
         </div>
       </div>
     </section>
+  `;
+}
+
+export function generateAnalyzeResultDefaultTemplate() {
+  return `
+    <div class="result-placeholder">
+      <i data-feather="info" size="48"></i>
+      <h3>Hasil Analisis</h3>
+      <p>Upload foto dan klik "Analisis Kulit" untuk melihat hasil analisis jenis kulit wajah Anda.</p>
+    </div>
+  `;
+}
+
+export function generateAnalyzeResultLoadingTemplate() {
+  return `
+    <div class="loading-analysis">
+      <div class="loading-spinner"></div>
+      <h3>Sedang menganalisis...</h3>
+      <p>Mohon tunggu, kami sedang menganalisis jenis kulit Anda.</p>
+    </div>
   `;
 }
 

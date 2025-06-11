@@ -27,4 +27,17 @@ export default class AnalyzePresenter {
     reader.readAsDataURL(file);
   }
 
+  _handelAnalyze(){
+    this.#view._renderAnalysisLoading();
+
+    setTimeout(() => {
+      this.#view._updateAnalyzeCard()
+    }, 2000);
+    
+  }
+
+  _handelReset(){
+
+  }
+
 } 

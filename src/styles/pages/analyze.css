@@ -183,6 +183,37 @@
   cursor: not-allowed;
 }
 
+.reset-button {
+  background-color: var(--bg);
+  color: var(--danger);
+  border-color: var(--danger);
+  flex: 1;
+}
+
+.reset-button:hover {
+  background-color: var(--danger);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.25);
+}
+
+/* loading reasult (start) ======================== */
+
+.loading-analysis {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-analysis h3 {
+  color: var(--primary);
+  margin: 1rem 0 0.5rem;
+}
+
+.loading-analysis p {
+  color: var(--text-light);
+}
+
+/* loading result (end) ========================= */
 
 /* Animasi masuk (start) ======================== */
 

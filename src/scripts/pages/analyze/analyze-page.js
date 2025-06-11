@@ -1,5 +1,9 @@
 import AnalyzePresenter from './analyze-presenter';
-import { generateAnalyzeTemplate } from '@pg/components/template';
+import { 
+  generateAnalyzeTemplate,
+  generateAnalyzeResultLoadingTemplate,
+  generateAnalyzeResultDefaultTemplate,
+} from '@pg/components/template';
 
 export default class AnalyzePage {
   #presenter;
@@ -16,6 +20,7 @@ export default class AnalyzePage {
     await this.#presenter._renderView();
 
     this.#bindFileUpload();
+    this.#bindCardBtnActions();
   }
  
   _renderView() {
@@ -32,6 +37,28 @@ export default class AnalyzePage {
     previewImg.style.display = 'block';
     placeholder.style.display = 'none';
     analyzeBtn.disabled = false;
+  }
+
+  _renderAnalysisLoading() {
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const resultContainer = document.getElementById('analysis-result');
+
+    analyzeBtn.disabled = true;
+    analyzeBtn.innerHTML = '<i data-feather="loader"></i> Menganalisis...';
+    resultContainer.innerHTML = generateAnalyzeResultLoadingTemplate();
+    if (typeof feather !== "undefined") feather.replace();
+  }
+
+  _updateAnalyzeCard(){
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const resultContainer = document.getElementById('analysis-result');
+
+    analyzeBtn.disabled = false;
+    resetBtn.style.display = 'inline-block';
+    analyzeBtn.innerHTML = '<i data-feather="search"></i> Analisis Ulang';
+    resultContainer.innerHTML = generateAnalyzeResultDefaultTemplate();
+    if (typeof feather !== "undefined") feather.replace();
   }
 
   showNotification(message, type) {
@@ -73,4 +100,18 @@ export default class AnalyzePage {
       }
     });
   }
+
+  #bindCardBtnActions(callback) {
+    const AnalyzeBtn = document.getElementById('analyze-btn');
+    AnalyzeBtn.addEventListener("click", (e) =>
+      this.#presenter._handelAnalyze()
+    );
+
+    const ResetBtn = document.getElementById('reset-btn');
+    ResetBtn.addEventListener("click", (e) =>
+      this.#presenter._handelReset()
+    );
+    
+  }
+
 }
