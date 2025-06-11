@@ -105,3 +105,57 @@ export function generateAboutTemplate() {
     ${generateAboutMainTemplate()}
   `;
 }
+
+
+
+/* ===================================================== */
+/* ANALYZE PAGE (ANALYZE) */
+
+export function generateAnalyzeMainTemplate() {
+  return `
+    <section id="analyze" class="container-analyze-view">
+      <h2><span>Analisis</span> Kulit Wajah Kamu</h2>
+      <p>Upload foto wajah Anda untuk mengetahui jenis kulit dan mendapatkan rekomendasi perawatan yang tepat.</p>
+      <div class="row">
+        <div class="card-img">
+          <div id="preview-container" class="preview-img">
+            <img id="preview" alt="Preview gambar" src="" />
+            <div class="placeholder-content">
+              <i data-feather="camera" size="48"></i>
+              <p>Upload foto wajah Anda</p>
+            </div>
+          </div>
+          <div class="upload-btn">
+            <label for="file-input" class="custom-file-upload">
+              <i data-feather="upload"></i> Upload File
+            </label>
+            <input type="file" id="file-input" accept="image/*" capture="environment">
+          </div>
+          <div class="analyze-actions">
+            <button id="analyze-btn" class="analyze-button" disabled>
+              <i data-feather="search"></i> Analisis Kulit
+            </button>
+            <button id="reset-btn" class="reset-button" style="display: none;">
+              <i data-feather="refresh-cw"></i> Reset
+            </button>
+          </div>
+        </div>
+        <div class="card-result">
+          <div id="analysis-result" class="analysis-content">
+            <div class="result-placeholder">
+              <i data-feather="info" size="48"></i>
+              <h3>Hasil Analisis</h3>
+              <p>Upload foto dan klik "Analisis Kulit" untuk melihat hasil analisis jenis kulit wajah Anda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+export function generateAnalyzeTemplate() {
+  return `
+    ${generateAnalyzeMainTemplate()}
+  `;
+}

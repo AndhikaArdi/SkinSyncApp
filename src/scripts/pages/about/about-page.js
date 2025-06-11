@@ -1,6 +1,5 @@
 import AboutPresenter from './about-presenter';
 import { generateAboutTemplate } from '@pg/components/template';
-import { generateAboutMainDescTemplate, generateAboutMainFeaturelistTemplate } from '../components/template';
 
 export default class AboutPage {
   #presenter;
