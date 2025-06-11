@@ -55,7 +55,7 @@ export function generateAboutMainTemplate() {
           <img src="/img/about-page-1.jpg" alt="Tentang Kami" />
         </div>
 
-        <div class="content"></div>
+        ${generateAboutMainDescTemplate()}
 
       </div>
     </section>
@@ -75,7 +75,7 @@ export function generateAboutMainDescTemplate() {
         mengidentifikasi karakteristik unik kulit Anda dan memberikan rekomendasi perawatan yang tepat sasaran.
       </p>
       
-      <div class="features"></div>
+      ${generateAboutMainFeaturelistTemplate()}
 
     </div>
   `;

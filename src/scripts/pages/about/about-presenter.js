@@ -8,8 +8,6 @@ export default class AboutPresenter {
   async _renderView() {
 
     this.#view._renderView();
-    this.#view._renderDesc();
-    this.#view._renderFeatures();
 
     this.#view._applyEntranceAnimation();
 

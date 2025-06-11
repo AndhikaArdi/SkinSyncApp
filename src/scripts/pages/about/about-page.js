@@ -22,16 +22,6 @@ export default class AboutPage {
     container.innerHTML = generateAboutTemplate();
   }
 
-  _renderDesc() {
-    const desc = document.querySelector('.content');
-    desc.innerHTML = generateAboutMainDescTemplate();
-  }
-
-  _renderFeatures(){
-    const features = document.querySelector('.features');
-    features.innerHTML = generateAboutMainFeaturelistTemplate();
-  }
-
   _applyEntranceAnimation() {
     const row = document.querySelector('.container-about-view .row');
     if (row) {
