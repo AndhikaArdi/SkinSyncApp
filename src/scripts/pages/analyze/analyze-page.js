@@ -1,7 +1,9 @@
 import AnalyzePresenter from './analyze-presenter';
+import AnalyzeModel from './analyze-model';
 import { 
   generateAnalyzeTemplate,
   generateAnalyzeResultLoadingTemplate,
+  generateAnalyzeResultTemplate,
   generateAnalyzeResultDefaultTemplate,
 } from '@pg/components/template';
 
@@ -15,6 +17,7 @@ export default class AnalyzePage {
   async afterRender() {
     this.#presenter = new AnalyzePresenter({
       view: this,
+      model: new AnalyzeModel(),
     });
     
     await this.#presenter._renderView();
@@ -49,19 +52,59 @@ export default class AnalyzePage {
     if (typeof feather !== "undefined") feather.replace();
   }
 
+  _renderAnalyzeResult(result){
+    const { type, description, recommendations } = result;
+
+    const resultContainer = document.getElementById('analysis-result');
+    resultContainer.innerHTML = generateAnalyzeResultTemplate(type, description);
+
+    const recomendlist = document.getElementById('analysis-result-recomend');
+    recommendations.forEach((rec) => {
+      const li = document.createElement('li');
+      li.className = 'product-item';
+      li.textContent = rec;
+      recomendlist.appendChild(li);
+    });
+
+    this.#bindResultBtnActions();
+  }
+
   _updateAnalyzeCard(){
     const analyzeBtn = document.getElementById('analyze-btn');
     const resetBtn = document.getElementById('reset-btn');
-    const resultContainer = document.getElementById('analysis-result');
 
     analyzeBtn.disabled = false;
     resetBtn.style.display = 'inline-block';
     analyzeBtn.innerHTML = '<i data-feather="search"></i> Analisis Ulang';
-    resultContainer.innerHTML = generateAnalyzeResultDefaultTemplate();
     if (typeof feather !== "undefined") feather.replace();
   }
 
-  showNotification(message, type) {
+  _resetView() {
+    const resultContainer = document.getElementById('analysis-result');
+    resultContainer.innerHTML = generateAnalyzeResultDefaultTemplate();
+
+    const previewImg = document.getElementById('preview');
+    const placeholder = document.querySelector('.placeholder-content');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const fileInput = document.getElementById('file-input');
+
+    previewImg.style.display = 'none';
+    placeholder.style.display = 'flex';
+    resetBtn.style.display = 'none';
+
+    analyzeBtn.innerHTML = '<i data-feather="search"></i> Analisis Kulit';
+    analyzeBtn.disabled = true;
+
+    if (fileInput) {
+        fileInput.value = "";
+    }
+
+    if (typeof feather !== "undefined") feather.replace();
+  }
+
+
+  _showNotification(message, type) {
     alert(`${type.toUpperCase()}: ${message}`);
   }
 
@@ -104,14 +147,24 @@ export default class AnalyzePage {
   #bindCardBtnActions(callback) {
     const AnalyzeBtn = document.getElementById('analyze-btn');
     AnalyzeBtn.addEventListener("click", (e) =>
-      this.#presenter._handelAnalyze()
+      this.#presenter._handleAnalyze()
     );
 
     const ResetBtn = document.getElementById('reset-btn');
     ResetBtn.addEventListener("click", (e) =>
-      this.#presenter._handelReset()
+      this.#presenter._handleReset()
     );
-    
   }
 
+  #bindResultBtnActions(callback){
+    const ShareBtn = document.getElementById('share-btn');
+    ShareBtn.addEventListener("click", (e) =>
+      this.#presenter._handleShare()
+    );
+
+    const SaveBtn = document.getElementById('save-btn');
+    SaveBtn.addEventListener("click", (e) =>
+      this.#presenter._handleSave()
+    );
+  }
 }

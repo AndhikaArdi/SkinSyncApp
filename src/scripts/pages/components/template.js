@@ -170,6 +170,26 @@ export function generateAnalyzeResultLoadingTemplate() {
   `;
 }
 
+export function generateAnalyzeResultTemplate(type, description) {
+  return `
+    <div class="result-success">
+      <div class="result-header">
+        <i data-feather="check-circle" class="success-icon"></i>
+        <h3>Jenis Kulit: ${type}</h3>
+      </div>
+      <div class="result-description"><p>${description}</p></div>
+      <div class="recommendations">
+        <h4><i data-feather="star"></i> Rekomendasi Perawatan:</h4>
+        <ul id="analysis-result-recomend"></ul>
+      </div>
+      <div class="result-actions">
+        <button class="share-btn" id="share-btn"><i data-feather="share-2"></i> Bagikan Hasil</button>
+        <button class="save-btn" id="save-btn"><i data-feather="bookmark"></i> Simpan Hasil</button>
+      </div>
+    </div>
+  `;
+}
+
 export function generateAnalyzeTemplate() {
   return `
     ${generateAnalyzeMainTemplate()}
