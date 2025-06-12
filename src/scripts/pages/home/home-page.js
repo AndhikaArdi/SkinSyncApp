@@ -4,6 +4,10 @@ import { generateHomeTemplate } from '@pg/components/template';
 export default class HomePage {
   #presenter;
 
+  constructor() {
+    this._pageTitle = '';
+  }
+
   async render() {
     return`<section class="container-home-view" id="home">memuat ...</section>`;
   }

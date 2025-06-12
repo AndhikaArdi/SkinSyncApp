@@ -4,6 +4,10 @@ import { generateAboutTemplate } from '@pg/components/template';
 export default class AboutPage {
   #presenter;
 
+  constructor() {
+    this._pageTitle = 'About - SkinSync';
+  }
+
   async render() {
     return`<section class="container-about-view" id="about">memuat ...</section>`;
   }

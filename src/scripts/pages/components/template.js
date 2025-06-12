@@ -119,17 +119,15 @@ export function generateAnalyzeMainTemplate() {
       <div class="row">
         <div class="card-img">
           <div id="preview-container" class="preview-img">
+            <video id="camera-preview" autoplay playsinline style="display: none;"></video>
             <img id="preview" alt="Preview gambar" src="" />
             <div class="placeholder-content">
               <i data-feather="camera" size="48"></i>
               <p>Upload foto wajah Anda</p>
             </div>
           </div>
-          <div class="upload-btn">
-            <label for="file-input" class="custom-file-upload">
-              <i data-feather="upload"></i> Upload File
-            </label>
-            <input type="file" id="file-input" accept="image/*" capture="environment">
+          <div class="upload-actions">
+            ${generateAnalyzeCardBtnDefaultTemplate()}
           </div>
           <div class="analyze-actions">
             <button id="analyze-btn" class="analyze-button" disabled>
@@ -147,6 +145,35 @@ export function generateAnalyzeMainTemplate() {
         </div>
       </div>
     </section>
+  `; // ubah display '<video id="camera-preview"' untuk menampilkan live kamera kamera, 
+}    // sinkronisasikan dengan 'placeholder-content' dan '<img id="preview"'
+
+export function generateAnalyzeCardBtnDefaultTemplate() {
+  return `
+    <div class="upload-actions">
+      <label for="file-input" class="upload-button">
+        <i data-feather="upload"></i> Unggah Berkas
+        <input type="file" id="file-input" accept="image/*" capture="environment" hidden>
+      </label>
+      <button id="camera-open-btn" class="camera-open-button" style='display:none'>
+        <i data-feather="camera"></i> Kamera
+      </button>
+    </div>
+  `; // ubah display 'camera-open-btn' untuk menampilkan tombol switch kamera
+}
+
+// GUNAKAN APABILA INGIN MENAMBAH FITUR KAMERA
+export function generateAnalyzeCardBtnCameraTemplate() {
+  return `
+    <div class="upload-actions">
+      <button id="upload-open-btn" class="upload-open-button">
+        <i data-feather="upload"></i> Berkas
+      </button>
+      <label for="camera-input" class="camera-button">
+        <i data-feather="camera"></i> Ambil Gambar
+        <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
+      </label>
+    </div>
   `;
 }
 
@@ -193,5 +220,77 @@ export function generateAnalyzeResultTemplate(type, description) {
 export function generateAnalyzeTemplate() {
   return `
     ${generateAnalyzeMainTemplate()}
+  `;
+}
+
+
+
+/* ===================================================== */
+/* CONTACT PAGE (CONTACT) */
+
+export function generateContactMainTemplate() {
+  return `
+    <section id="contact" class="container-contact-view">
+      <h2><span>Hubungi</span> Kami</h2>
+      <p>Ada pertanyaan atau saran? Jangan ragu untuk menghubungi tim SkinSync. Kami siap membantu Anda!</p>
+
+        <div class="row">
+          <div class="contact-form-container">
+            <h3>Kirim Pesan</h3>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" name="phone">
+                <span class="error-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subjek</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Pilih Subjek</option>
+                  <option value="general">Pertanyaan Umum</option>
+                  <option value="technical">Masalah Teknis</option>
+                  <option value="feedback">Saran & Feedback</option>
+                  <option value="partnership">Kerjasama</option>
+                  <option value="other">Lainnya</option>
+                </select>
+                <span class="error-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" rows="5" required 
+                          placeholder="Tulis pesan Anda di sini..."></textarea>
+                <span class="error-message"></span>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <i data-feather="send"></i>
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  `;
+}
+
+export function generateContactTemplate() {
+  return `
+    ${generateContactMainTemplate()}
   `;
 }

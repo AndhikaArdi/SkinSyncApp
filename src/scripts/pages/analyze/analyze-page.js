@@ -10,6 +10,10 @@ import {
 export default class AnalyzePage {
   #presenter;
 
+  constructor() {
+    this._pageTitle = 'Analyze - SkinSync';
+  }
+
   async render() {
     return`<section class="container-analyze-view" id="analyze">memuat ...</section>`;
   }

@@ -26,10 +26,13 @@ export default class App {
     const page = routes[url];
 
     if (!page) {
+      document.title = '404 - Not Found';
       this.#content.innerHTML = generatePageNotFound404Template();
       if (typeof feather !== "undefined") feather.replace();
       return;
     }
+
+    document.title = page._pageTitle || 'SkinSync';
 
     if (document.startViewTransition) {
       await document.startViewTransition(async () => {
