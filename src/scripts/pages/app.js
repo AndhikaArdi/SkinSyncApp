@@ -1,18 +1,18 @@
-import routes from '@sc/routes/routes';
-import UrlParser from '@sc/routes/url-parser';
-import { generatePageNotFound404Template } from '@pg/components/template';
+import routes from "@sc/routes/routes";
+import UrlParser from "@sc/routes/url-parser";
+import { generatePageNotFound404Template } from "@pg/components/template";
 
 export default class App {
   #content;
   #navigation;
 
-  constructor({content, navigation}) {
+  constructor({ content, navigation }) {
     this.#content = content;
     this.#navigation = navigation;
   }
 
   async updateNavbar() {
-    const navbarContainer = document.getElementById('navbar');
+    const navbarContainer = document.getElementById("navbar");
     if (navbarContainer) {
       navbarContainer.innerHTML = this.#navigation.render();
       this.#navigation.afterRender();
@@ -26,13 +26,13 @@ export default class App {
     const page = routes[url];
 
     if (!page) {
-      document.title = '404 - Not Found';
+      document.title = "404 - Not Found";
       this.#content.innerHTML = generatePageNotFound404Template();
       if (typeof feather !== "undefined") feather.replace();
       return;
     }
 
-    document.title = page._pageTitle || 'SkinSync';
+    document.title = page._pageTitle || "SkinSync";
 
     if (document.startViewTransition) {
       await document.startViewTransition(async () => {

@@ -4,10 +4,10 @@ import AnalyzePage from "../pages/analyze/analyze-page";
 import ContactPage from "../pages/contact/contact-page";
 
 const routes = {
-    '/' : new HomePage(),
-    '/about' : new AboutPage(),
-    '/analyze' : new AnalyzePage(),
-    '/contact' : new ContactPage(),
+  "/": new HomePage(),
+  "/about": new AboutPage(),
+  "/analyze": new AnalyzePage(),
+  "/contact": new ContactPage(),
 };
 
 export default routes;

@@ -116,8 +116,6 @@
   display: none;
 }
 
-
-
 /* UPLOAD ACTION ================================================= */
 .upload-actions {
   display: flex;
@@ -168,8 +166,6 @@
   gap: 0.2rem;
 }
 
-
-
 /* Hover styles */
 .upload-button:hover,
 .camera-button:hover {
@@ -186,9 +182,6 @@
 }
 
 /* UPLOAD ACTION ================================================= */
-
-
-
 
 /* Results Card */
 .container-analyze-view .card-result {
@@ -294,7 +287,7 @@
 
 .container-analyze-view .row {
   opacity: 0;
-  transform: translateY(30px); 
+  transform: translateY(30px);
 }
 
 @keyframes fadeInUp {
@@ -308,9 +301,9 @@
   }
 }
 
-.container-analyze-view .row.is-animated { 
+.container-analyze-view .row.is-animated {
   animation: fadeInUp 0.5s ease-out forwards;
-} 
+}
 
 /* Animasi masuk (end) ======================== */
 

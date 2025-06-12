@@ -68,7 +68,7 @@
 
 .container-about-view .row {
   opacity: 0;
-  transform: translateY(30px); 
+  transform: translateY(30px);
 }
 
 @keyframes fadeInUp {
@@ -82,9 +82,9 @@
   }
 }
 
-.container-about-view .row.is-animated { 
+.container-about-view .row.is-animated {
   animation: fadeInUp 1s ease-out forwards;
-} 
+}
 
 /* Animasi masuk (end) ======================== */
 
@@ -95,8 +95,7 @@
 }
 
 .container-about-view .row .feature-item:hover {
-  transform: translateY(-5px); 
+  transform: translateY(-5px);
 }
-
 
 /* Animasi hover (end) ======================== */

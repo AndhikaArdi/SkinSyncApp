@@ -4,6 +4,7 @@
   "description": "SkinSync - Single Page Application untuk analisis kulit wajah",
   "main": "src/scripts/index.js",
   "scripts": {
+    "format": "prettier --write .",
     "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack serve --config webpack.dev.js",
     "serve": "http-server dist"
@@ -25,6 +26,7 @@
     "html-webpack-plugin": "^5.6.3",
     "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "^3.5.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",

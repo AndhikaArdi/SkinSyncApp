@@ -2,54 +2,52 @@
 /* NAVIGATION BAR (DRAWER) RESPONSIVE*/
 
 @media (max-width: 850px) {
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--primary);
+    width: 30rem;
+    height: auto;
+    flex-direction: column;
+    border-top: 1px solid var(--bg);
+    transition: right 0.3s ease-in-out;
+    z-index: 9998;
+  }
 
-    .navbar .navbar-nav {
-        position: absolute;
-        top: 100%;
-        right: -100%; 
-        background-color: var(--primary); 
-        width: 30rem; 
-        height: auto;
-        flex-direction: column; 
-        border-top: 1px solid var(--bg); 
-        transition: right 0.3s ease-in-out; 
-        z-index: 9998; 
-    }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
 
-    .navbar .navbar-nav.active { 
-      right: 0; 
-    }
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    font-size: 2rem;
+  }
 
-    .navbar .navbar-nav a {
-        color: var(--bg); 
-        display: block; 
-        margin: 1.5rem;
-        font-size: 2rem;
-    }
+  .navbar .navbar-nav a:hover::after,
+  .navbar .navbar-nav a.active::after {
+    transform: scaleX(0.2);
+  }
 
-    .navbar .navbar-nav a:hover::after,
-    .navbar .navbar-nav a.active::after {
-        transform: scaleX(0.2); 
-    }
-
-    #hamburger-menu {
-        display: inline-block; 
-    }
+  #hamburger-menu {
+    display: inline-block;
+  }
 }
 
 @media (max-width: 450px) {
+  .navbar {
+    padding: 1.4rem 4%;
+  }
 
-    .navbar { 
-      padding: 1.4rem 4%; 
-    }
+  .navbar .navbar-logo {
+    font-size: 1.8rem;
+  }
 
-    .navbar .navbar-logo { 
-      font-size: 1.8rem; 
-    }
-
-    .navbar .navbar-nav { 
-      width: 100%; 
-    }
+  .navbar .navbar-nav {
+    width: 100%;
+  }
 }
 
 /* ===================================================== */
@@ -65,11 +63,11 @@
   .not-found-title {
     font-size: 5rem;
   }
-  
+
   .not-found-subtitle {
     font-size: 1.8rem;
   }
-  
+
   .not-found-message {
     font-size: 1rem;
     max-width: 90%;
@@ -105,7 +103,6 @@
     font-size: 1rem;
   }
 }
-
 
 /* ===================================================== */
 /* HOME PAGE (HOME) RESPONSIVE*/
@@ -171,7 +168,6 @@
   }
 }
 
-
 /* ===================================================== */
 /* ABOUT PAGE (ABOUT) RESPONSIVE*/
 
@@ -179,11 +175,11 @@
   .container-about-view .row {
     max-width: 1000px;
   }
-  
+
   .container-about-view .row h3 {
     font-size: 2rem;
   }
-  
+
   .container-about-view .row p {
     font-size: 1rem;
   }
@@ -193,28 +189,28 @@
   .container-about-view {
     padding: 8rem 5% 0;
   }
-  
+
   .container-about-view h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
   }
-  
+
   .container-about-view .row {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .container-about-view .row .content {
     padding: 0 1rem 1rem;
     order: 2;
   }
-  
+
   .container-about-view .row .about-img {
     order: 1;
     flex-basis: auto;
     margin-bottom: 1rem;
   }
-  
+
   .features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -226,7 +222,7 @@
   .container-about-view {
     padding: 7rem 4% 0;
   }
-  
+
   .container-about-view h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
@@ -236,12 +232,12 @@
     font-size: 1.8rem;
     margin-bottom: 1rem;
   }
-  
+
   .container-about-view .row p {
     margin-bottom: 1rem;
     line-height: 1.6;
   }
-  
+
   .features {
     grid-template-columns: 1fr;
   }
@@ -251,7 +247,7 @@
   .container-about-view {
     padding: 6.5rem 3% 0;
   }
-  
+
   .container-about-view h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
@@ -260,11 +256,11 @@
   .container-about-view .row h3 {
     font-size: 1.5rem;
   }
-  
+
   .feature-item h4 {
     font-size: 1.1rem;
   }
-  
+
   .feature-item p {
     font-size: 0.9rem;
   }
@@ -274,21 +270,20 @@
   .container-about-view {
     padding: 6.5rem 3% 0;
   }
-  
+
   .container-about-view h2 {
     font-size: 1.6rem;
     margin-bottom: 1rem;
   }
-  
+
   .container-about-view .row h3 {
     font-size: 1.3rem;
   }
-  
+
   .container-about-view .row p {
     font-size: 0.9rem;
   }
 }
-
 
 /* ===================================================== */
 /* ANALYZE PAGE (ANALYZE) RESPONSIVE*/
@@ -303,15 +298,15 @@
   .container-analyze-view {
     padding: 7rem 5% 4rem;
   }
-  
+
   .container-analyze-view h2 {
     font-size: 2.5rem;
   }
-  
+
   .container-analyze-view .card-img {
     width: 22rem;
   }
-  
+
   .container-analyze-view .card-result {
     min-width: 25rem;
   }
@@ -321,29 +316,29 @@
   .container-analyze-view {
     padding: 7rem 4% 3rem;
   }
-  
+
   .container-analyze-view h2 {
     font-size: 2.2rem;
   }
-  
+
   .container-analyze-view > p {
     font-size: 1.1rem;
     margin-bottom: 3rem;
   }
-  
+
   .container-analyze-view .row {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
   }
-  
+
   .container-analyze-view .card-img,
   .container-analyze-view .card-result {
     width: 100%;
     max-width: 30rem;
     min-width: auto;
   }
-  
+
   .result-actions button {
     min-width: 120px;
   }
@@ -353,47 +348,47 @@
   .container-analyze-view {
     padding: 7rem 3% 2rem;
   }
-  
+
   .container-analyze-view h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
   }
-  
+
   .container-analyze-view > p {
     font-size: 1rem;
     margin-bottom: 2rem;
   }
-  
+
   .container-analyze-view .card-img,
   .container-analyze-view .card-result {
     padding: 1.5rem;
   }
-  
+
   .custom-file-upload {
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
   }
-  
+
   .analyze-button,
   .reset-button,
   .result-actions button {
     padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
   }
-  
+
   .result-header h3 {
     font-size: 1.5rem;
   }
-  
+
   .recommendations h4 {
     font-size: 1.1rem;
   }
-  
+
   .result-actions {
     flex-direction: column;
     gap: 0.8rem;
   }
-  
+
   .result-actions button {
     width: 100%;
   }
@@ -403,16 +398,16 @@
   .container-analyze-view h2 {
     font-size: 1.6rem;
   }
-  
+
   .placeholder-content i {
     width: 36px;
     height: 36px;
   }
-  
+
   .placeholder-content p {
     font-size: 0.9rem;
   }
-  
+
   .analyze-actions {
     flex-direction: column;
   }

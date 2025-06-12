@@ -37,7 +37,7 @@
   background: #fff;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form-container h3 {
@@ -92,12 +92,11 @@
 
 /* CONTACT FORM (end) ====================================== */
 
-
 /* Animasi masuk (start) ======================== */
 
 .container-contact-view .row {
   opacity: 0;
-  transform: translateY(30px); 
+  transform: translateY(30px);
 }
 
 @keyframes fadeInUp {
@@ -111,8 +110,8 @@
   }
 }
 
-.container-contact-view .row.is-animated { 
+.container-contact-view .row.is-animated {
   animation: fadeInUp 0.5s ease-out forwards;
-} 
+}
 
 /* Animasi masuk (end) ======================== */

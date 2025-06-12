@@ -1,11 +1,10 @@
-@import './components/navigation.css';
-@import './pages/home.css';
-@import './pages/about.css';
-@import './pages/analyze.css';
-@import './pages/contact.css';
-@import './pages/404notfound.css';
-@import './components/responsive.css';
-
+@import "./components/navigation.css";
+@import "./pages/home.css";
+@import "./pages/about.css";
+@import "./pages/analyze.css";
+@import "./pages/contact.css";
+@import "./pages/404notfound.css";
+@import "./components/responsive.css";
 
 :root {
   /* warna */

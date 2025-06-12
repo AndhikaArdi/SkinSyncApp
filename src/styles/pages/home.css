@@ -2,11 +2,8 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(
-      135deg,
-      rgba(33, 52, 72, 0.8),
-      rgba(0, 123, 255, 0.2)
-    ),
+  background:
+    linear-gradient(135deg, rgba(33, 52, 72, 0.8), rgba(0, 123, 255, 0.2)),
     url("@img/home-page-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,12 +11,12 @@
   position: relative;
 }
 
-.container-home-view .content { 
-  padding: 1.4rem 7%; 
-  max-width: 60rem; 
-  z-index: 2; 
-  position: relative; 
-} 
+.container-home-view .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+  z-index: 2;
+  position: relative;
+}
 
 .container-home-view .content h1 {
   font-size: 3.5rem;
@@ -63,14 +60,13 @@
   box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
 }
 
-
 /* Animasi masuk (start) ======================== */
 
 .container-home-view .content h1,
 .container-home-view .content p,
 .container-home-view .content .cta {
   opacity: 0;
-  transform: translateY(20px); 
+  transform: translateY(20px);
 }
 
 @keyframes fadeInUp {
@@ -84,17 +80,16 @@
   }
 }
 
-.container-home-view .content.is-animated h1 { 
+.container-home-view .content.is-animated h1 {
   animation: fadeInUp 1s ease-out forwards;
-} 
-
-.container-home-view .content.is-animated p { 
-  animation: fadeInUp 1s ease-out 0.2s forwards;
-} 
-
-.container-home-view .content.is-animated .cta { 
-  animation: fadeInUp 1s ease-out 0.4s forwards; 
 }
 
+.container-home-view .content.is-animated p {
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.container-home-view .content.is-animated .cta {
+  animation: fadeInUp 1s ease-out 0.4s forwards;
+}
 
 /* Animasi masuk (end) ======================== */

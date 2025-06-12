@@ -12,8 +12,6 @@ export function generatePageNotFound404Template() {
   `;
 }
 
-
-
 /* ===================================================== */
 /* HOME PAGE (HOME) */
 
@@ -39,8 +37,6 @@ export function generateHomeTemplate() {
     ${generateHomeMainTemplate()}
   `;
 }
-
-
 
 /* ===================================================== */
 /* ABOUT PAGE (ABOUT) */
@@ -106,8 +102,6 @@ export function generateAboutTemplate() {
   `;
 }
 
-
-
 /* ===================================================== */
 /* ANALYZE PAGE (ANALYZE) */
 
@@ -145,8 +139,8 @@ export function generateAnalyzeMainTemplate() {
         </div>
       </div>
     </section>
-  `; // ubah display '<video id="camera-preview"' untuk menampilkan live kamera kamera, 
-}    // sinkronisasikan dengan 'placeholder-content' dan '<img id="preview"'
+  `; // ubah display '<video id="camera-preview"' untuk menampilkan live kamera kamera,
+} // sinkronisasikan dengan 'placeholder-content' dan '<img id="preview"'
 
 export function generateAnalyzeCardBtnDefaultTemplate() {
   return `
@@ -222,8 +216,6 @@ export function generateAnalyzeTemplate() {
     ${generateAnalyzeMainTemplate()}
   `;
 }
-
-
 
 /* ===================================================== */
 /* CONTACT PAGE (CONTACT) */

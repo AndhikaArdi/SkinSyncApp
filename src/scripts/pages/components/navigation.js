@@ -28,9 +28,9 @@ export default class Navigation {
   }
 
   afterRender() {
-    this.navbar = document.querySelector('.navbar');
-    this.drawer = document.querySelector('.navbar-nav');
-    this.hamburger = document.querySelector('#hamburger-menu');
+    this.navbar = document.querySelector(".navbar");
+    this.drawer = document.querySelector(".navbar-nav");
+    this.hamburger = document.querySelector("#hamburger-menu");
 
     if (!this.drawer || !this.hamburger || !this.navbar) return;
 
@@ -39,49 +39,55 @@ export default class Navigation {
   }
 
   _setActiveLink() {
-    const currentPath = '#' + UrlParser.getCurrentPath();
-    const links = this.drawer.querySelectorAll('a');
-    
-    links.forEach(link => {
-      let linkPath = link.getAttribute('href')
-      link.classList.remove('active');
-      
-      if (currentPath === linkPath || 
-          (currentPath.startsWith(linkPath) && linkPath !== '#/')) {
-        link.classList.add('active');
+    const currentPath = "#" + UrlParser.getCurrentPath();
+    const links = this.drawer.querySelectorAll("a");
+
+    links.forEach((link) => {
+      let linkPath = link.getAttribute("href");
+      link.classList.remove("active");
+
+      if (
+        currentPath === linkPath ||
+        (currentPath.startsWith(linkPath) && linkPath !== "#/")
+      ) {
+        link.classList.add("active");
       }
     });
   }
 
   _setupEventListeners() {
-    this.hamburger.addEventListener('click', (event) => {
+    this.hamburger.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
       this.toggleDrawer();
     });
 
-    document.addEventListener('click', (event) => {
+    document.addEventListener("click", (event) => {
       const isClickInsideNavbar = this.navbar.contains(event.target);
       const isClickInsideDrawer = this.drawer.contains(event.target);
 
-      if (!isClickInsideNavbar && !isClickInsideDrawer && this.drawer.classList.contains('active')) {
+      if (
+        !isClickInsideNavbar &&
+        !isClickInsideDrawer &&
+        this.drawer.classList.contains("active")
+      ) {
         this.closeDrawer(); // Tutup drawer jika klik di luar menu
       }
     });
 
-    this.drawer.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => { // Tutup drawer saat klik link
+    this.drawer.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        // Tutup drawer saat klik link
         this.closeDrawer();
       });
     });
   }
-  
 
   toggleDrawer() {
-    this.drawer.classList.toggle('active');
+    this.drawer.classList.toggle("active");
   }
 
   closeDrawer() {
-    this.drawer.classList.remove('active');
+    this.drawer.classList.remove("active");
   }
 }

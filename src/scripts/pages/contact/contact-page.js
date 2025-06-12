@@ -1,16 +1,16 @@
-import { generateContactTemplate } from '../components/template';
-import ContactModel from './contact-model';
-import ContactPresenter from './contact-presenter';
+import { generateContactTemplate } from "../components/template";
+import ContactModel from "./contact-model";
+import ContactPresenter from "./contact-presenter";
 
 export default class ContactPage {
   #presenter;
 
   constructor() {
-    this._pageTitle = 'Contact - SkinSync';
+    this._pageTitle = "Contact - SkinSync";
   }
 
   async render() {
-    return`<section class="container-contact-view" id="contact">memuat ...</section>`;
+    return `<section class="container-contact-view" id="contact">memuat ...</section>`;
   }
 
   async afterRender() {
@@ -18,14 +18,14 @@ export default class ContactPage {
       view: this,
       model: new ContactModel(),
     });
-    
+
     await this.#presenter._renderView();
 
     this.#bindSubmitForm();
   }
 
   _renderView() {
-    const container = document.querySelector('#app');
+    const container = document.querySelector("#app");
     container.innerHTML = generateContactTemplate();
   }
 
@@ -34,18 +34,16 @@ export default class ContactPage {
   }
 
   _applyEntranceAnimation() {
-    const row = document.querySelector('.container-contact-view .row');
+    const row = document.querySelector(".container-contact-view .row");
     if (row) {
-
       setTimeout(() => {
-        row.classList.toggle('is-animated'); // menambah class untuk animasi css
+        row.classList.toggle("is-animated"); // menambah class untuk animasi css
       }, 100);
-
     }
   }
 
   #bindSubmitForm(callback) {
-    const form = document.querySelector('#contact-form');
+    const form = document.querySelector("#contact-form");
     form.addEventListener("submit", (e) => {
       if (!form.checkValidity()) {
         return;
@@ -64,5 +62,4 @@ export default class ContactPage {
       this.#presenter._handleSubmit(formData);
     });
   }
-
 }

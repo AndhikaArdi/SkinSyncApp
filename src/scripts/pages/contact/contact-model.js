@@ -1,5 +1,4 @@
 export default class ContactModel {
-
   // Untuk saat ini pakai local storage dulu
   _saveSubmitedForm(formData) {
     const formDataToSave = {
@@ -18,5 +17,4 @@ export default class ContactModel {
       return { success: false, error: e };
     }
   }
-
 }

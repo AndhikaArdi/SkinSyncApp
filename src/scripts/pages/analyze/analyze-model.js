@@ -1,7 +1,6 @@
-import { skinTypes } from '@sc/data/result.js';
+import { skinTypes } from "@sc/data/result.js";
 
 export default class AnalyzeModel {
-
   // Untuk saat ini pakai simulasi dulu
   async analyzeSkin(_selectedFile) {
     await this._simulateDelay();
@@ -24,7 +23,8 @@ export default class AnalyzeModel {
     };
 
     try {
-      const existing = JSON.parse(localStorage.getItem("analysisResults")) || [];
+      const existing =
+        JSON.parse(localStorage.getItem("analysisResults")) || [];
       existing.push(resultToSave);
       localStorage.setItem("analysisResults", JSON.stringify(existing));
       return { success: true };
@@ -33,5 +33,4 @@ export default class AnalyzeModel {
       return { success: false, error: e };
     }
   }
-
 }
