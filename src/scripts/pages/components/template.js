@@ -48,7 +48,7 @@ export function generateAboutMainTemplate() {
 
       <div class="row">
         <div class="about-img">
-          <img src="/img/about-page-1.jpg" alt="Tentang Kami" />
+          <img src="img/about-page-1.jpg" alt="Tentang Kami" />
         </div>
 
         ${generateAboutMainDescTemplate()}
@@ -149,8 +149,15 @@ export function generateAnalyzeCardBtnDefaultTemplate() {
         <i data-feather="upload"></i> Unggah Berkas
         <input type="file" id="file-input" accept="image/*" capture="environment" hidden>
       </label>
-      <button id="camera-open-btn" class="camera-open-button" style='display:none'>
+      <button id="camera-open-btn" class="camera-open-button">
         <i data-feather="camera"></i> Kamera
+      </button>
+
+      <button id="upload-open-btn" class="upload-open-button" style="display: none;">
+        <i data-feather="upload"></i> Berkas
+      </button>
+      <button id="camera-input" class="camera-button" style="display: none;">
+        <i data-feather="camera"></i> Ambil Gambar
       </button>
     </div>
   `; // ubah display 'camera-open-btn' untuk menampilkan tombol switch kamera

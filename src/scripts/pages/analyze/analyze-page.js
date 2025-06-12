@@ -3,9 +3,14 @@ import AnalyzeModel from "./analyze-model";
 import {
   generateAnalyzeTemplate,
   generateAnalyzeResultLoadingTemplate,
+
   generateAnalyzeResultTemplate,
   generateAnalyzeResultDefaultTemplate,
+
+  generateAnalyzeCardBtnCameraTemplate,
+  generateAnalyzeCardBtnDefaultTemplate
 } from "@pg/components/template";
+
 
 export default class AnalyzePage {
   #presenter;
@@ -28,6 +33,7 @@ export default class AnalyzePage {
 
     this.#bindFileUpload();
     this.#bindCardBtnActions();
+    this.#bindSwitchBtnCameraUpload();
   }
 
   _renderView() {
@@ -165,4 +171,33 @@ export default class AnalyzePage {
     const SaveBtn = document.getElementById("save-btn");
     SaveBtn.addEventListener("click", (e) => this.#presenter._handleSave());
   }
+
+  #bindSwitchBtnCameraUpload() {
+    const openCamera = document.querySelector(".camera-open-button");
+    const openUpload = document.querySelector(".upload-open-button");
+    const Camera = document.querySelector(".camera-button");
+    const Upload = document.querySelector(".upload-button");
+
+    const CameraBtn = document.getElementById("camera-open-btn");
+    const UploadBtn = document.getElementById("upload-open-btn");
+
+    if (CameraBtn) {
+      CameraBtn.addEventListener("click", () => {
+        Camera.style.display = 'inline-flex';
+        openUpload.style.display = 'flex';
+        Upload.style.display = 'none';
+        openCamera.style.display = 'none';
+      });
+    }
+
+    if (UploadBtn) {
+      UploadBtn.addEventListener("click", () => {
+        Camera.style.display = 'none';
+        openUpload.style.display = 'none';
+        Upload.style.display = 'inline-flex';
+        openCamera.style.display = 'flex';
+      });
+    }
+  }
+
 }

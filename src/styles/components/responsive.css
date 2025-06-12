@@ -369,6 +369,11 @@
     font-size: 0.9rem;
   }
 
+  .upload-open-button,
+  .camera-open-button {
+    max-width: 5rem;
+  }
+
   .analyze-button,
   .reset-button,
   .result-actions button {
