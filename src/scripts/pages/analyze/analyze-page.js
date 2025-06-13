@@ -7,8 +7,6 @@ import {
   generateAnalyzeResultTemplate,
   generateAnalyzeResultDefaultTemplate,
 
-  generateAnalyzeCardBtnCameraTemplate,
-  generateAnalyzeCardBtnDefaultTemplate
 } from "@pg/components/template";
 
 

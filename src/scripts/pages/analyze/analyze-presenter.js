@@ -6,7 +6,8 @@ export default class AnalyzePresenter {
     this.#view = view;
     this.#model = model;
     this._selectedFile = null;
-    this._result = null;
+    this._resultML = null;
+    this._resultRecommendation = null;
   }
 
   async _renderView() {
@@ -38,8 +39,9 @@ export default class AnalyzePresenter {
     this.#view._renderAnalysisLoading();
 
     try {
-      this._result = await this.#model.analyzeSkin(this._selectedFile);
-      this.#view._renderAnalyzeResult(this._result);
+      this._resultML = await this.#model.analyzeSkin(this._selectedFile);
+      this._resultRecommendation = await this.#model.getRecommendation(this._resultML.type);
+      this.#view._renderAnalyzeResult(this._resultRecommendation);
       this.#view._updateAnalyzeCard();
     } catch (error) {
       console.error("Analysis failed:", error);
@@ -61,13 +63,11 @@ export default class AnalyzePresenter {
       type,
       description,
       recommendations,
-      confidence = "?",
-    } = this._result;
+    } = this._resultRecommendation;
 
     const shareText = [
       "🧪 Hasil Analisis Kulit Saya (SkinSync):",
       `• Jenis Kulit: ${type}`,
-      `• Kepercayaan: ${confidence}%`,
       `• Deskripsi: ${description}`,
       recommendations && recommendations.length > 0
         ? `• Rekomendasi: ${recommendations.map((r, i) => `\n   ${i + 1}. ${r}`).join("")}`
@@ -110,7 +110,7 @@ export default class AnalyzePresenter {
   }
 
   _handleSave() {
-    if (!this._result) {
+    if (!this._resultRecommendation) {
       this.#view._showNotification(
         "Belum ada hasil untuk disimpan.",
         "warning",
@@ -118,7 +118,7 @@ export default class AnalyzePresenter {
       return;
     }
 
-    const saveResult = this.#model._saveAnalysisToLocal(this._result);
+    const saveResult = this.#model._saveAnalysisToLocal(this._resultRecommendation);
 
     if (saveResult.success) {
       this.#view._showNotification(

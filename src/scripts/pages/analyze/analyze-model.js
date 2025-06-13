@@ -1,20 +1,16 @@
-import { skinTypes } from "@sc/data/result.js";
+import api from '@sc/data/api';
 
 export default class AnalyzeModel {
-  // Untuk saat ini pakai simulasi dulu
-  async analyzeSkin(_selectedFile) {
-    await this._simulateDelay();
-
-    const randomIndex = Math.floor(Math.random() * skinTypes.length);
-    const result = skinTypes[randomIndex];
-    return result;
+  
+  async analyzeSkin(file) {
+    return api.analyzeSkin(file);
   }
 
-  _simulateDelay() {
-    return new Promise((resolve) => setTimeout(resolve, 1000));
+  async getRecommendation(type) {
+    return api.getRecommendation(type);
   }
 
-  // Untuk saat ini pakai local storage dulu
+  // Untuk saat ini pakai local storage dulu (simulasi)
   _saveAnalysisToLocal(result) {
     const resultToSave = {
       ...result,
